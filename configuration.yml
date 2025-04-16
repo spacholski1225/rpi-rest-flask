@@ -1,0 +1,20 @@
+# configuration.yaml
+sensor:
+  - platform: rest
+    name: temperature_sensor
+    resource: http://spacholskiuz2.pythonanywhere.com/temperature
+    method: GET
+    value_template: "{{ value_json.temperature }}"
+    unit_of_measurement: "C"
+    scan_interval: 10
+
+rest_command:
+  toggle_flask_led:
+    url: http://spacholskiuz2.pythonanywhere.com/toggle
+    method: GET
+
+
+input_boolean:
+  flask_switch_state:
+    name: "Stan przełącznika Flask"
+    initial: off
